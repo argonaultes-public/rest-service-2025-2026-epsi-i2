@@ -32,7 +32,7 @@ jobs:
     - name: Sonar Coverage
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=argonaultes-public_rest-service-2025-2026-epsi-i2 -Pcoverage    
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=argonaultes-public_rest-service-2025-2026-epsi-i2 -Pcoverage    
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
 #    - name: Update dependency graph
