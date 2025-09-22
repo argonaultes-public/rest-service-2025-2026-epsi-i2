@@ -16,7 +16,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
-		<sonar.organization>epsi-i2-paris-2024</sonar.organization>
+		<sonar.organization>${env.SONAR_ORGA}</sonar.organization>
 	</properties>
 	<dependencies>
 		<dependency>
