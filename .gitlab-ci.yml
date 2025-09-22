@@ -16,6 +16,7 @@
 
 stages:
   - test
+  - integrationtest
   - deploy
   - codequality
 
@@ -84,6 +85,12 @@ test:jdk17:
     - 'mvn $MAVEN_CLI_OPTS test'
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+testdb:jdk17:
+  stage: integrationtest
+  script:
+    - mvn -Ptestdb $MAVEN_CLI_OPTS integration-test
+
 
 sonarcloud-check:
   stage: codequality
