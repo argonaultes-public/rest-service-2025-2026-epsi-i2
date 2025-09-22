@@ -16,6 +16,7 @@
 
 stages:
   - test
+  - integrationtest
   - deploy
   - codequality
 
@@ -84,6 +85,19 @@ test:jdk17:
     - 'mvn $MAVEN_CLI_OPTS test'
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+testdb:jdk17:
+  variables:
+    POSTGRES_DB: testdb
+    POSTGRES_USER: testuser
+    POSTGRES_PASSWORD: testpassword
+    POSTGRES_HOST_AUTH_METHOD: trust
+  services:
+    - postgres
+  stage: integrationtest
+  script:
+    - mvn -Ptestdb $MAVEN_CLI_OPTS integration-test
+
 
 sonarcloud-check:
   stage: codequality
