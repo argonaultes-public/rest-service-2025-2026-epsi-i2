@@ -38,3 +38,13 @@ driver = webdriver.Remote(command_executor='http://localhost:4444', options=Opti
 
 Pour accéder au bureau à distance via le navigateur, aller à http://localhost:7900.
 Le mot de passe par défaut est `secret`.
+
+En cas d'erreur d'un test, si la session Selenium reste active, pensez à détruirer les sessions fantômes avant de relancer
+
+Trouver l'ID de session : http://localhost:4444/ui/#/sessions
+
+Envoyer l'ordre de destruction via la commande
+
+```bash
+curl --request DELETE 'http://localhost:4444/session/<sessionid_to_replace>'
+```
