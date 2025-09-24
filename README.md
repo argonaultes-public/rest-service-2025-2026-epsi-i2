@@ -35,3 +35,6 @@ from selenium.webdriver.firefox.options import Options
 driver = webdriver.Remote(command_executor='http://localhost:4444', options=Options())
 
 ```
+
+Pour accéder au bureau à distance via le navigateur, aller à http://localhost:7900.
+Le mot de passe par défaut est `secret`.
